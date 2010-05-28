@@ -50,7 +50,7 @@ from go_sleek_list import go_sleek
 sp = singleparser()
 mp = multiparser()
 
-
+# not parsing ID. This function merged in class spider3 in seaspider-lite
 def read_fasta(infile):
     """
     read a fasta file, return a list

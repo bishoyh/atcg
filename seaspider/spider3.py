@@ -38,13 +38,16 @@ Use:
 python spider3.py inputfile outputdir [annotation_option]
 
 Note:
+If one only needs option [0] to map sequences to MetaFishNet, 
+the single file version, seaspider-lite.py should be used.
+
 SeaSpider needs support of sequence databases and a few MySQL databases 
 to accomplish its tasks. The links to download databases are given at 
 http://metafishnet.appspot.com .
 A shelved database is used to store data while spider3 is working.
 
 05/28/2010
-Fully functional with BLAST ver 2.1.18. However, blastcl3 
+Fully functional with BLAST ver 2.2.18. However, blastcl3 
 may be deprecated in the latest BLAST.
 The remote search option may need rewrite.
 """

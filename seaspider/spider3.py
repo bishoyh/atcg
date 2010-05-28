@@ -32,14 +32,21 @@ The annotator with MetaFishNet/SeaSpider, three options:
         (metabolic genes, from 5 fish genomces)
     [1] fish ontology,
         GO annotation by finding homologs in zebrafish then GO generic, locally
-    [2] search NCBI remotely, no GO, descriptive only. # blastcl3 is now deprecated
+    [2] search NCBI remotely, no GO, descriptive only. 
 
-use:
+Use:
 python spider3.py inputfile outputdir [annotation_option]
 
-Using a shelved database to store data while sipder3 is working.
+Note:
+SeaSpider needs support of sequence databases and a few MySQL databases 
+to accomplish its tasks. The links to download databases are given at 
+http://metafishnet.appspot.com .
+A shelved database is used to store data while spider3 is working.
 
-last update: 12/28/2009
+05/28/2010
+Fully functional with BLAST ver 2.1.18. However, blastcl3 
+may be deprecated in the latest BLAST.
+The remote search option may need rewrite.
 """
 
 import sys, os, shelve
@@ -287,6 +294,7 @@ class spider3:
         p=Popen(pcmd, shell=True, stdin=PIPE, stdout=PIPE, stderr=PIPE)
         # use Popen.communicate() to avoid OS pipe buffer problems 
         (blastxml, blasterr) = p.communicate()
+        # if blastxml, check error in blast run
         if cl3:
             return mp.parse(blastxml, check_homology, True)
         else:

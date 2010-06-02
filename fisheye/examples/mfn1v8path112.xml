@@ -1,0 +1,992 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<sbml xmlns="http://www.sbml.org/sbml/level2/version4" level="2" version="4">
+  <model id="aspartate and asparagine metabolism">
+    <annotation>a pathway from MetaFishNet project</annotation>
+    <listOfSpeciesTypes>
+      <speciesType id="enzyme"/>
+      <speciesType id="compound"/>
+    </listOfSpeciesTypes>
+    <listOfSpecies>
+      <species id="3.5.1.26" speciesType="enzyme"/>
+      <species id="1.4.1.3;1.4.1.2;1.4.1.4" speciesType="enzyme"/>
+      <species id="3.5.3.1" speciesType="enzyme"/>
+      <species id="2.6.1.2" speciesType="enzyme"/>
+      <species id="1.5.3.11" speciesType="enzyme"/>
+      <species id="1.2.1.24" speciesType="enzyme"/>
+      <species id="2.5.1.18" speciesType="enzyme"/>
+      <species id="6.3.4.16" speciesType="enzyme"/>
+      <species id="1.4.1.3;1.4.1.4" speciesType="enzyme"/>
+      <species id="3.5.1.2;3.5.1.38" speciesType="enzyme"/>
+      <species id="6.1.1.12" speciesType="enzyme"/>
+      <species id="1.8.1.7" speciesType="enzyme"/>
+      <species id="6.1.1.17" speciesType="enzyme"/>
+      <species id="6.1.1.15" speciesType="enzyme"/>
+      <species id="6.1.1.19" speciesType="enzyme"/>
+      <species id="6.1.1.18" speciesType="enzyme"/>
+      <species id="3.5.1.15;3.5.1.8" speciesType="enzyme"/>
+      <species id="1.4.3.1;1.4.3.15" speciesType="enzyme"/>
+      <species id="1.2.1.3" speciesType="enzyme"/>
+      <species id="6.1.1.22" speciesType="enzyme"/>
+      <species id="1.5.1.12;1.5.99.8" speciesType="enzyme"/>
+      <species id="1.4.3.2;1.4.3.16" speciesType="enzyme"/>
+      <species id="2.5.1.46" speciesType="enzyme"/>
+      <species id="3.4.11.4;2.3.2.2" speciesType="enzyme"/>
+      <species id="1.4.3.4" speciesType="enzyme"/>
+      <species id="3.4.11.5" speciesType="enzyme"/>
+      <species id="3.5.1.15" speciesType="enzyme"/>
+      <species id="1.2.1.-" speciesType="enzyme"/>
+      <species id="3.4.11.2" speciesType="enzyme"/>
+      <species id="3.5.1.14;3.5.1.16" speciesType="enzyme"/>
+      <species id="2.1.3.3" speciesType="enzyme"/>
+      <species id="6.3.1.2" speciesType="enzyme"/>
+      <species id="1.11.1.12" speciesType="enzyme"/>
+      <species id="1.14.13.39" speciesType="enzyme"/>
+      <species id="1.1.99.2" speciesType="enzyme"/>
+      <species id="2.3.1.1" speciesType="enzyme"/>
+      <species id="4.1.1.17" speciesType="enzyme"/>
+      <species id="2.6.1.23;2.6.1.1" speciesType="enzyme"/>
+      <species id="1.5.1.12" speciesType="enzyme"/>
+      <species id="2.3.2.2" speciesType="enzyme"/>
+      <species id="3.5.1.4" speciesType="enzyme"/>
+      <species id="C00025" speciesType="compound"/>
+      <species id="C00024" speciesType="compound"/>
+      <species id="C00027" speciesType="compound"/>
+      <species id="C00026" speciesType="compound"/>
+      <species id="C00020" speciesType="compound"/>
+      <species id="C00148" speciesType="compound"/>
+      <species id="C05729" speciesType="compound"/>
+      <species id="C00437" speciesType="compound"/>
+      <species id="C01029" speciesType="compound"/>
+      <species id="C00533" speciesType="compound"/>
+      <species id="C01025" speciesType="compound"/>
+      <species id="C05726" speciesType="compound"/>
+      <species id="C02320" speciesType="compound"/>
+      <species id="C02630" speciesType="compound"/>
+      <species id="C00010" speciesType="compound"/>
+      <species id="C00011" speciesType="compound"/>
+      <species id="C00012" speciesType="compound"/>
+      <species id="C05829" speciesType="compound"/>
+      <species id="C00014" speciesType="compound"/>
+      <species id="C00016" speciesType="compound"/>
+      <species id="C00151" speciesType="compound"/>
+      <species id="C00152" speciesType="compound"/>
+      <species id="C01035" speciesType="compound"/>
+      <species id="C01239" speciesType="compound"/>
+      <species id="CE1556" speciesType="compound"/>
+      <species id="C00036" speciesType="compound"/>
+      <species id="C00009" speciesType="compound"/>
+      <species id="C00008" speciesType="compound"/>
+      <species id="C00007" speciesType="compound"/>
+      <species id="C00006" speciesType="compound"/>
+      <species id="C00005" speciesType="compound"/>
+      <species id="C00004" speciesType="compound"/>
+      <species id="C00003" speciesType="compound"/>
+      <species id="C00002" speciesType="compound"/>
+      <species id="C00001" speciesType="compound"/>
+      <species id="CE1935" speciesType="compound"/>
+      <species id="CE1937" speciesType="compound"/>
+      <species id="CE1936" speciesType="compound"/>
+      <species id="CE1939" speciesType="compound"/>
+      <species id="CE1938" speciesType="compound"/>
+      <species id="CE1941" speciesType="compound"/>
+      <species id="C01637" speciesType="compound"/>
+      <species id="C01636" speciesType="compound"/>
+      <species id="C03740" speciesType="compound"/>
+      <species id="C01638" speciesType="compound"/>
+      <species id="C00315" speciesType="compound"/>
+      <species id="C00555" speciesType="compound"/>
+      <species id="C01322" speciesType="compound"/>
+      <species id="C00077" speciesType="compound"/>
+      <species id="C02282" speciesType="compound"/>
+      <species id="C02702" speciesType="compound"/>
+      <species id="C02567" speciesType="compound"/>
+      <species id="C05572" speciesType="compound"/>
+      <species id="C00086" speciesType="compound"/>
+      <species id="C01640" speciesType="compound"/>
+      <species id="C01641" speciesType="compound"/>
+      <species id="C00080" speciesType="compound"/>
+      <species id="C01157" speciesType="compound"/>
+      <species id="C01649" speciesType="compound"/>
+      <species id="C01318" speciesType="compound"/>
+      <species id="C05938" speciesType="compound"/>
+      <species id="C02984" speciesType="compound"/>
+      <species id="C05931" speciesType="compound"/>
+      <species id="C05932" speciesType="compound"/>
+      <species id="C02987" speciesType="compound"/>
+      <species id="C06113" speciesType="compound"/>
+      <species id="C00169" speciesType="compound"/>
+      <species id="C05936" speciesType="compound"/>
+      <species id="C00062" speciesType="compound"/>
+      <species id="C00064" speciesType="compound"/>
+      <species id="C00109" speciesType="compound"/>
+      <species id="C04540" speciesType="compound"/>
+      <species id="C01419" speciesType="compound"/>
+      <species id="C03078" speciesType="compound"/>
+      <species id="C00986" speciesType="compound"/>
+      <species id="CE1059" speciesType="compound"/>
+      <species id="C03402" speciesType="compound"/>
+      <species id="C02163" speciesType="compound"/>
+      <species id="C02356" speciesType="compound"/>
+      <species id="C00402" speciesType="compound"/>
+      <species id="C00612" speciesType="compound"/>
+      <species id="CE4788" speciesType="compound"/>
+      <species id="C03413" speciesType="compound"/>
+      <species id="C00127" speciesType="compound"/>
+      <species id="C00327" speciesType="compound"/>
+      <species id="C01165" speciesType="compound"/>
+      <species id="C00013" speciesType="compound"/>
+      <species id="CE2072" speciesType="compound"/>
+      <species id="C01044" speciesType="compound"/>
+      <species id="C05947" speciesType="compound"/>
+      <species id="C05946" speciesType="compound"/>
+      <species id="C00051" speciesType="compound"/>
+      <species id="C00058" speciesType="compound"/>
+      <species id="C02714" speciesType="compound"/>
+      <species id="CE5588" speciesType="compound"/>
+      <species id="C00037" speciesType="compound"/>
+      <species id="CE1940" speciesType="compound"/>
+      <species id="C00033" speciesType="compound"/>
+      <species id="CE1942" speciesType="compound"/>
+      <species id="CE1943" speciesType="compound"/>
+      <species id="C00134" speciesType="compound"/>
+      <species id="CE5586" speciesType="compound"/>
+      <species id="CE1944" speciesType="compound"/>
+      <species id="C04281" speciesType="compound"/>
+      <species id="C06112" speciesType="compound"/>
+      <species id="C01352" speciesType="compound"/>
+      <species id="C00047" speciesType="compound"/>
+      <species id="C01356" speciesType="compound"/>
+      <species id="C00049" speciesType="compound"/>
+    </listOfSpecies>
+    <listOfReactions>
+      <reaction id="R01262">
+        <listOfReactants>
+          <speciesReference species="C00051"/>
+          <speciesReference species="C00151"/>
+        </listOfReactants>
+        <listOfProducts>
+          <speciesReference species="C01419"/>
+          <speciesReference species="C03740"/>
+        </listOfProducts>
+        <listOfModifiers>
+          <modifierSpeciesReference species="2.3.2.2"/>
+        </listOfModifiers>
+      </reaction>
+      <reaction id="R03421">
+        <listOfReactants>
+          <speciesReference species="C04540"/>
+          <speciesReference species="C00001"/>
+        </listOfReactants>
+        <listOfProducts>
+          <speciesReference species="C01239"/>
+          <speciesReference species="C00049"/>
+        </listOfProducts>
+        <listOfModifiers>
+          <modifierSpeciesReference species="3.5.1.26"/>
+        </listOfModifiers>
+      </reaction>
+      <reaction id="R03180">
+        <listOfReactants>
+          <speciesReference species="C03078"/>
+          <speciesReference species="C00001"/>
+        </listOfReactants>
+        <listOfProducts>
+          <speciesReference species="C01035"/>
+          <speciesReference species="C00014"/>
+        </listOfProducts>
+        <listOfModifiers>
+          <modifierSpeciesReference species="3.5.1.4"/>
+        </listOfModifiers>
+      </reaction>
+      <reaction id="R03294">
+        <listOfReactants>
+          <speciesReference species="C01157"/>
+          <speciesReference species="C00016"/>
+        </listOfReactants>
+        <listOfProducts>
+          <speciesReference species="C04281"/>
+          <speciesReference species="C01352"/>
+        </listOfProducts>
+        <listOfModifiers>
+          <modifierSpeciesReference species="1.5.1.12"/>
+        </listOfModifiers>
+      </reaction>
+      <reaction id="RE1537">
+        <listOfReactants>
+          <speciesReference species="C00001"/>
+          <speciesReference species="C00007"/>
+          <speciesReference species="C00612"/>
+        </listOfReactants>
+        <listOfProducts>
+          <speciesReference species="C00027"/>
+          <speciesReference species="C00134"/>
+          <speciesReference species="CE4788"/>
+        </listOfProducts>
+        <listOfModifiers>
+          <modifierSpeciesReference species="1.5.3.11"/>
+        </listOfModifiers>
+      </reaction>
+      <reaction id="R03167">
+        <listOfReactants>
+          <speciesReference species="C01025"/>
+          <speciesReference species="C00051"/>
+        </listOfReactants>
+        <listOfProducts>
+          <speciesReference species="C01356"/>
+          <speciesReference species="C00127"/>
+          <speciesReference species="C00001"/>
+        </listOfProducts>
+        <listOfModifiers>
+          <modifierSpeciesReference species="1.11.1.12"/>
+        </listOfModifiers>
+      </reaction>
+      <reaction id="R04951">
+        <listOfReactants>
+          <speciesReference species="C05726"/>
+          <speciesReference species="C00037"/>
+        </listOfReactants>
+        <listOfProducts>
+          <speciesReference species="C05729"/>
+        </listOfProducts>
+        <listOfModifiers>
+          <modifierSpeciesReference species="3.4.11.2"/>
+        </listOfModifiers>
+      </reaction>
+      <reaction id="RE3369">
+        <listOfReactants>
+          <speciesReference species="C00001"/>
+          <speciesReference species="C00003"/>
+          <speciesReference species="CE1943"/>
+        </listOfReactants>
+        <listOfProducts>
+          <speciesReference species="C00004"/>
+          <speciesReference species="C00080"/>
+          <speciesReference species="CE1942"/>
+        </listOfProducts>
+        <listOfModifiers>
+          <modifierSpeciesReference species="1.2.1.3"/>
+        </listOfModifiers>
+      </reaction>
+      <reaction id="RE3368">
+        <listOfReactants>
+          <speciesReference species="C00001"/>
+          <speciesReference species="C00003"/>
+          <speciesReference species="CE1936"/>
+        </listOfReactants>
+        <listOfProducts>
+          <speciesReference species="C00004"/>
+          <speciesReference species="C00080"/>
+          <speciesReference species="CE1938"/>
+        </listOfProducts>
+        <listOfModifiers>
+          <modifierSpeciesReference species="1.2.1.3"/>
+        </listOfModifiers>
+      </reaction>
+      <reaction id="R00526">
+        <listOfReactants>
+          <speciesReference species="C01044"/>
+          <speciesReference species="C00001"/>
+        </listOfReactants>
+        <listOfProducts>
+          <speciesReference species="C00058"/>
+          <speciesReference species="C00049"/>
+        </listOfProducts>
+        <listOfModifiers>
+          <modifierSpeciesReference species="3.5.1.15;3.5.1.8"/>
+        </listOfModifiers>
+      </reaction>
+      <reaction id="R00094">
+        <listOfReactants>
+          <speciesReference species="C00003"/>
+          <speciesReference species="C00051"/>
+        </listOfReactants>
+        <listOfProducts>
+          <speciesReference species="C00127"/>
+          <speciesReference species="C00004"/>
+        </listOfProducts>
+        <listOfModifiers>
+          <modifierSpeciesReference species="1.8.1.7"/>
+        </listOfModifiers>
+      </reaction>
+      <reaction id="R00149">
+        <listOfReactants>
+          <speciesReference species="C00002"/>
+          <speciesReference species="C00014"/>
+          <speciesReference species="C00011"/>
+          <speciesReference species="C00001"/>
+        </listOfReactants>
+        <listOfProducts>
+          <speciesReference species="C00008"/>
+          <speciesReference species="C00009"/>
+          <speciesReference species="C00169"/>
+        </listOfProducts>
+        <listOfModifiers>
+          <modifierSpeciesReference species="6.3.4.16"/>
+        </listOfModifiers>
+      </reaction>
+      <reaction id="R00551">
+        <listOfReactants>
+          <speciesReference species="C00062"/>
+          <speciesReference species="C00001"/>
+        </listOfReactants>
+        <listOfProducts>
+          <speciesReference species="C00077"/>
+          <speciesReference species="C00086"/>
+        </listOfProducts>
+        <listOfModifiers>
+          <modifierSpeciesReference species="3.5.3.1"/>
+        </listOfModifiers>
+      </reaction>
+      <reaction id="R00557">
+        <listOfReactants>
+          <speciesReference species="C00062"/>
+          <speciesReference species="C00007"/>
+          <speciesReference species="C00005"/>
+        </listOfReactants>
+        <listOfProducts>
+          <speciesReference species="C00533"/>
+          <speciesReference species="C00327"/>
+          <speciesReference species="C00006"/>
+        </listOfProducts>
+        <listOfModifiers>
+          <modifierSpeciesReference species="1.14.13.39"/>
+        </listOfModifiers>
+      </reaction>
+      <reaction id="RE2034">
+        <listOfReactants>
+          <speciesReference species="C00026"/>
+          <speciesReference species="C02356"/>
+        </listOfReactants>
+        <listOfProducts>
+          <speciesReference species="C00109"/>
+          <speciesReference species="C00025"/>
+        </listOfProducts>
+        <listOfModifiers>
+          <modifierSpeciesReference species="2.6.1.2"/>
+        </listOfModifiers>
+      </reaction>
+      <reaction id="R00357">
+        <listOfReactants>
+          <speciesReference species="C00049"/>
+          <speciesReference species="C00001"/>
+          <speciesReference species="C00007"/>
+        </listOfReactants>
+        <listOfProducts>
+          <speciesReference species="C00036"/>
+          <speciesReference species="C00014"/>
+          <speciesReference species="C00027"/>
+        </listOfProducts>
+        <listOfModifiers>
+          <modifierSpeciesReference species="1.4.3.2;1.4.3.16"/>
+        </listOfModifiers>
+      </reaction>
+      <reaction id="RE1235">
+        <listOfReactants>
+          <speciesReference species="C00024"/>
+          <speciesReference species="C00315"/>
+        </listOfReactants>
+        <listOfProducts>
+          <speciesReference species="C00010"/>
+          <speciesReference species="C00080"/>
+          <speciesReference species="C01029"/>
+        </listOfProducts>
+        <listOfModifiers>
+          <modifierSpeciesReference/>
+        </listOfModifiers>
+      </reaction>
+      <reaction id="R05051">
+        <listOfReactants>
+          <speciesReference species="C05947"/>
+          <speciesReference species="C00003"/>
+        </listOfReactants>
+        <listOfProducts>
+          <speciesReference species="C05938"/>
+          <speciesReference species="C00004"/>
+          <speciesReference species="C00001"/>
+        </listOfProducts>
+        <listOfModifiers>
+          <modifierSpeciesReference species="1.5.1.12;1.5.99.8"/>
+        </listOfModifiers>
+      </reaction>
+      <reaction id="RE0691">
+        <listOfReactants>
+          <speciesReference species="C00555"/>
+        </listOfReactants>
+        <listOfProducts>
+          <speciesReference species="C00001"/>
+          <speciesReference species="C00080"/>
+          <speciesReference species="CE1944"/>
+        </listOfProducts>
+        <listOfModifiers>
+          <modifierSpeciesReference/>
+        </listOfModifiers>
+      </reaction>
+      <reaction id="R01398">
+        <listOfReactants>
+          <speciesReference species="C00169"/>
+          <speciesReference species="C00077"/>
+        </listOfReactants>
+        <listOfProducts>
+          <speciesReference species="C00009"/>
+          <speciesReference species="C00327"/>
+        </listOfProducts>
+        <listOfModifiers>
+          <modifierSpeciesReference species="2.1.3.3"/>
+        </listOfModifiers>
+      </reaction>
+      <reaction id="RE1899">
+        <listOfReactants>
+          <speciesReference species="C00047"/>
+          <speciesReference species="C00315"/>
+        </listOfReactants>
+        <listOfProducts>
+          <speciesReference species="C00986"/>
+          <speciesReference species="CE5588"/>
+        </listOfProducts>
+        <listOfModifiers>
+          <modifierSpeciesReference species="2.5.1.46"/>
+        </listOfModifiers>
+      </reaction>
+      <reaction id="RE1898">
+        <listOfReactants>
+          <speciesReference species="CE5586"/>
+        </listOfReactants>
+        <listOfProducts>
+          <speciesReference species="C00986"/>
+          <speciesReference species="CE1944"/>
+        </listOfProducts>
+        <listOfModifiers>
+          <modifierSpeciesReference species="2.5.1.46"/>
+        </listOfModifiers>
+      </reaction>
+      <reaction id="RE1897">
+        <listOfReactants>
+          <speciesReference species="C00003"/>
+          <speciesReference species="C00315"/>
+        </listOfReactants>
+        <listOfProducts>
+          <speciesReference species="C00004"/>
+          <speciesReference species="C00080"/>
+          <speciesReference species="CE5586"/>
+        </listOfProducts>
+        <listOfModifiers>
+          <modifierSpeciesReference species="2.5.1.46"/>
+        </listOfModifiers>
+      </reaction>
+      <reaction id="R00115">
+        <listOfReactants>
+          <speciesReference species="C00006"/>
+          <speciesReference species="C00051"/>
+        </listOfReactants>
+        <listOfProducts>
+          <speciesReference species="C00127"/>
+          <speciesReference species="C00005"/>
+          <speciesReference species="C00080"/>
+        </listOfProducts>
+        <listOfModifiers>
+          <modifierSpeciesReference species="1.8.1.7"/>
+        </listOfModifiers>
+      </reaction>
+      <reaction id="RE1240">
+        <listOfReactants>
+          <speciesReference species="C00024"/>
+          <speciesReference species="C02567"/>
+        </listOfReactants>
+        <listOfProducts>
+          <speciesReference species="C00010"/>
+          <speciesReference species="C00080"/>
+          <speciesReference species="C03413"/>
+        </listOfProducts>
+        <listOfModifiers>
+          <modifierSpeciesReference/>
+        </listOfModifiers>
+      </reaction>
+      <reaction id="RE1538">
+        <listOfReactants>
+          <speciesReference species="C00001"/>
+          <speciesReference species="C00007"/>
+          <speciesReference species="C03413"/>
+        </listOfReactants>
+        <listOfProducts>
+          <speciesReference species="C00027"/>
+          <speciesReference species="C00612"/>
+          <speciesReference species="CE4788"/>
+        </listOfProducts>
+        <listOfModifiers>
+          <modifierSpeciesReference species="1.5.3.11"/>
+        </listOfModifiers>
+      </reaction>
+      <reaction id="RE1539">
+        <listOfReactants>
+          <speciesReference species="C00001"/>
+          <speciesReference species="C00007"/>
+          <speciesReference species="C02567"/>
+        </listOfReactants>
+        <listOfProducts>
+          <speciesReference species="C00027"/>
+          <speciesReference species="C00315"/>
+          <speciesReference species="CE4788"/>
+        </listOfProducts>
+        <listOfModifiers>
+          <modifierSpeciesReference species="1.5.3.11"/>
+        </listOfModifiers>
+      </reaction>
+      <reaction id="RE2032">
+        <listOfReactants>
+          <speciesReference species="C00024"/>
+          <speciesReference species="C00152"/>
+        </listOfReactants>
+        <listOfProducts>
+          <speciesReference species="C00010"/>
+          <speciesReference species="C00080"/>
+          <speciesReference species="CE1556"/>
+        </listOfProducts>
+        <listOfModifiers>
+          <modifierSpeciesReference species="2.3.1.1"/>
+        </listOfModifiers>
+      </reaction>
+      <reaction id="R04025">
+        <listOfReactants>
+          <speciesReference species="C02714"/>
+          <speciesReference species="C00001"/>
+          <speciesReference species="C00007"/>
+        </listOfReactants>
+        <listOfProducts>
+          <speciesReference species="C05936"/>
+          <speciesReference species="C00014"/>
+          <speciesReference species="C00027"/>
+        </listOfProducts>
+        <listOfModifiers>
+          <modifierSpeciesReference species="1.4.3.4"/>
+        </listOfModifiers>
+      </reaction>
+      <reaction id="R00359">
+        <listOfReactants>
+          <speciesReference species="C00402"/>
+          <speciesReference species="C00001"/>
+          <speciesReference species="C00007"/>
+        </listOfReactants>
+        <listOfProducts>
+          <speciesReference species="C00036"/>
+          <speciesReference species="C00014"/>
+          <speciesReference species="C00027"/>
+        </listOfProducts>
+        <listOfModifiers>
+          <modifierSpeciesReference species="1.4.3.1;1.4.3.15"/>
+        </listOfModifiers>
+      </reaction>
+      <reaction id="RE2333">
+        <listOfReactants>
+          <speciesReference species="C00001"/>
+          <speciesReference species="C00003"/>
+          <speciesReference species="CE1939"/>
+        </listOfReactants>
+        <listOfProducts>
+          <speciesReference species="C00004"/>
+          <speciesReference species="C00080"/>
+          <speciesReference species="CE2072"/>
+        </listOfProducts>
+        <listOfModifiers>
+          <modifierSpeciesReference species="1.2.1.-"/>
+        </listOfModifiers>
+      </reaction>
+      <reaction id="RE2335">
+        <listOfReactants>
+          <speciesReference species="C00001"/>
+          <speciesReference species="C00003"/>
+          <speciesReference species="CE1935"/>
+        </listOfReactants>
+        <listOfProducts>
+          <speciesReference species="C00004"/>
+          <speciesReference species="C00080"/>
+          <speciesReference species="CE1937"/>
+        </listOfProducts>
+        <listOfModifiers>
+          <modifierSpeciesReference species="1.2.1.-"/>
+        </listOfModifiers>
+      </reaction>
+      <reaction id="RE2334">
+        <listOfReactants>
+          <speciesReference species="C00001"/>
+          <speciesReference species="C00003"/>
+          <speciesReference species="CE1940"/>
+        </listOfReactants>
+        <listOfProducts>
+          <speciesReference species="C00004"/>
+          <speciesReference species="C00080"/>
+          <speciesReference species="CE1941"/>
+        </listOfProducts>
+        <listOfModifiers>
+          <modifierSpeciesReference species="1.2.1.-"/>
+        </listOfModifiers>
+      </reaction>
+      <reaction id="R00254">
+        <listOfReactants>
+          <speciesReference species="C00025"/>
+          <speciesReference species="C00014"/>
+          <speciesReference species="C00011"/>
+        </listOfReactants>
+        <listOfProducts>
+          <speciesReference species="C05829"/>
+          <speciesReference species="C00001"/>
+        </listOfProducts>
+        <listOfModifiers>
+          <modifierSpeciesReference/>
+        </listOfModifiers>
+      </reaction>
+      <reaction id="R00253">
+        <listOfReactants>
+          <speciesReference species="C00002"/>
+          <speciesReference species="C00025"/>
+          <speciesReference species="C00014"/>
+        </listOfReactants>
+        <listOfProducts>
+          <speciesReference species="C00008"/>
+          <speciesReference species="C00009"/>
+          <speciesReference species="C00064"/>
+        </listOfProducts>
+        <listOfModifiers>
+          <modifierSpeciesReference species="6.3.1.2"/>
+        </listOfModifiers>
+      </reaction>
+      <reaction id="R00135">
+        <listOfReactants>
+          <speciesReference species="C00012"/>
+          <speciesReference species="C00001"/>
+        </listOfReactants>
+        <listOfProducts>
+          <speciesReference species="C00148"/>
+          <speciesReference species="C00012"/>
+        </listOfProducts>
+        <listOfModifiers>
+          <modifierSpeciesReference species="3.4.11.5"/>
+        </listOfModifiers>
+      </reaction>
+      <reaction id="R00245">
+        <listOfReactants>
+          <speciesReference species="C01165"/>
+          <speciesReference species="C00003"/>
+          <speciesReference species="C00001"/>
+        </listOfReactants>
+        <listOfProducts>
+          <speciesReference species="C00025"/>
+          <speciesReference species="C00004"/>
+          <speciesReference species="C00080"/>
+        </listOfProducts>
+        <listOfModifiers>
+          <modifierSpeciesReference species="1.5.1.12"/>
+        </listOfModifiers>
+      </reaction>
+      <reaction id="R00243">
+        <listOfReactants>
+          <speciesReference species="C00025"/>
+          <speciesReference species="C00003"/>
+          <speciesReference species="C00001"/>
+        </listOfReactants>
+        <listOfProducts>
+          <speciesReference species="C00026"/>
+          <speciesReference species="C00014"/>
+          <speciesReference species="C00004"/>
+          <speciesReference species="C00080"/>
+        </listOfProducts>
+        <listOfModifiers>
+          <modifierSpeciesReference species="1.4.1.3;1.4.1.2;1.4.1.4"/>
+        </listOfModifiers>
+      </reaction>
+      <reaction id="R00669">
+        <listOfReactants>
+          <speciesReference species="C00437"/>
+          <speciesReference species="C00001"/>
+        </listOfReactants>
+        <listOfProducts>
+          <speciesReference species="C00033"/>
+          <speciesReference species="C00077"/>
+        </listOfProducts>
+        <listOfModifiers>
+          <modifierSpeciesReference species="3.5.1.14;3.5.1.16"/>
+        </listOfModifiers>
+      </reaction>
+      <reaction id="RE1236">
+        <listOfReactants>
+          <speciesReference species="C00024"/>
+          <speciesReference species="C00612"/>
+        </listOfReactants>
+        <listOfProducts>
+          <speciesReference species="C00010"/>
+          <speciesReference species="C00080"/>
+          <speciesReference species="CE1059"/>
+        </listOfProducts>
+        <listOfModifiers>
+          <modifierSpeciesReference/>
+        </listOfModifiers>
+      </reaction>
+      <reaction id="R05052">
+        <listOfReactants>
+          <speciesReference species="C05947"/>
+          <speciesReference species="C00026"/>
+        </listOfReactants>
+        <listOfProducts>
+          <speciesReference species="C05946"/>
+          <speciesReference species="C00025"/>
+        </listOfProducts>
+        <listOfModifiers>
+          <modifierSpeciesReference species="2.6.1.23;2.6.1.1"/>
+        </listOfModifiers>
+      </reaction>
+      <reaction id="R00270">
+        <listOfReactants>
+          <speciesReference species="C00026"/>
+          <speciesReference species="C00014"/>
+        </listOfReactants>
+        <listOfProducts>
+          <speciesReference species="C05572"/>
+          <speciesReference species="C00001"/>
+        </listOfProducts>
+        <listOfModifiers>
+          <modifierSpeciesReference/>
+        </listOfModifiers>
+      </reaction>
+      <reaction id="R03916">
+        <listOfReactants>
+          <speciesReference species="C02320"/>
+          <speciesReference species="C00001"/>
+        </listOfReactants>
+        <listOfProducts>
+          <speciesReference species="C05729"/>
+          <speciesReference species="C00025"/>
+        </listOfProducts>
+        <listOfModifiers>
+          <modifierSpeciesReference species="2.3.2.2"/>
+        </listOfModifiers>
+      </reaction>
+      <reaction id="RE2644">
+        <listOfReactants>
+          <speciesReference species="C00001"/>
+          <speciesReference species="CE1556"/>
+        </listOfReactants>
+        <listOfProducts>
+          <speciesReference species="C00033"/>
+          <speciesReference species="C00152"/>
+        </listOfProducts>
+        <listOfModifiers>
+          <modifierSpeciesReference species="3.5.1.15"/>
+        </listOfModifiers>
+      </reaction>
+      <reaction id="R00494">
+        <listOfReactants>
+          <speciesReference species="C00051"/>
+          <speciesReference species="C00001"/>
+        </listOfReactants>
+        <listOfProducts>
+          <speciesReference species="C01419"/>
+          <speciesReference species="C00025"/>
+        </listOfProducts>
+        <listOfModifiers>
+          <modifierSpeciesReference species="3.4.11.4;2.3.2.2"/>
+        </listOfModifiers>
+      </reaction>
+      <reaction id="R00256">
+        <listOfReactants>
+          <speciesReference species="C00064"/>
+          <speciesReference species="C00001"/>
+        </listOfReactants>
+        <listOfProducts>
+          <speciesReference species="C00025"/>
+          <speciesReference species="C00014"/>
+        </listOfProducts>
+        <listOfModifiers>
+          <modifierSpeciesReference species="3.5.1.2;3.5.1.38"/>
+        </listOfModifiers>
+      </reaction>
+      <reaction id="R00670">
+        <listOfReactants>
+          <speciesReference species="C00077"/>
+        </listOfReactants>
+        <listOfProducts>
+          <speciesReference species="C00134"/>
+          <speciesReference species="C00011"/>
+        </listOfProducts>
+        <listOfModifiers>
+          <modifierSpeciesReference species="4.1.1.17"/>
+        </listOfModifiers>
+      </reaction>
+      <reaction id="R05049">
+        <listOfReactants>
+          <speciesReference species="C05932"/>
+          <speciesReference species="C00003"/>
+          <speciesReference species="C00001"/>
+        </listOfReactants>
+        <listOfProducts>
+          <speciesReference species="C05931"/>
+          <speciesReference species="C00004"/>
+          <speciesReference species="C00080"/>
+        </listOfProducts>
+        <listOfModifiers>
+          <modifierSpeciesReference species="1.2.1.24"/>
+        </listOfModifiers>
+      </reaction>
+      <reaction id="R00248">
+        <listOfReactants>
+          <speciesReference species="C00025"/>
+          <speciesReference species="C00006"/>
+          <speciesReference species="C00001"/>
+        </listOfReactants>
+        <listOfProducts>
+          <speciesReference species="C00026"/>
+          <speciesReference species="C00014"/>
+          <speciesReference species="C00005"/>
+          <speciesReference species="C00080"/>
+        </listOfProducts>
+        <listOfModifiers>
+          <modifierSpeciesReference species="1.4.1.3;1.4.1.4"/>
+        </listOfModifiers>
+      </reaction>
+      <reaction id="R03522">
+        <listOfReactants>
+          <speciesReference species="C01322"/>
+          <speciesReference species="C00051"/>
+        </listOfReactants>
+        <listOfProducts>
+          <speciesReference species="C01318"/>
+          <speciesReference species="C02320"/>
+        </listOfProducts>
+        <listOfModifiers>
+          <modifierSpeciesReference species="2.5.1.18"/>
+        </listOfModifiers>
+      </reaction>
+      <reaction id="R03661">
+        <listOfReactants>
+          <speciesReference species="C00002"/>
+          <speciesReference species="C00148"/>
+          <speciesReference species="C01649"/>
+        </listOfReactants>
+        <listOfProducts>
+          <speciesReference species="C00020"/>
+          <speciesReference species="C00013"/>
+          <speciesReference species="C02702"/>
+        </listOfProducts>
+        <listOfModifiers>
+          <modifierSpeciesReference species="6.1.1.15"/>
+        </listOfModifiers>
+      </reaction>
+      <reaction id="R03534">
+        <listOfReactants>
+          <speciesReference species="C02630"/>
+          <speciesReference species="C00016"/>
+        </listOfReactants>
+        <listOfProducts>
+          <speciesReference species="C00026"/>
+          <speciesReference species="C01352"/>
+        </listOfProducts>
+        <listOfModifiers>
+          <modifierSpeciesReference species="1.1.99.2"/>
+        </listOfModifiers>
+      </reaction>
+      <reaction id="R03651">
+        <listOfReactants>
+          <speciesReference species="C00002"/>
+          <speciesReference species="C00025"/>
+          <speciesReference species="C01640"/>
+        </listOfReactants>
+        <listOfProducts>
+          <speciesReference species="C00020"/>
+          <speciesReference species="C00013"/>
+          <speciesReference species="C06112"/>
+        </listOfProducts>
+        <listOfModifiers>
+          <modifierSpeciesReference species="6.1.1.17"/>
+        </listOfModifiers>
+      </reaction>
+      <reaction id="R03652">
+        <listOfReactants>
+          <speciesReference species="C00002"/>
+          <speciesReference species="C00064"/>
+          <speciesReference species="C01640"/>
+        </listOfReactants>
+        <listOfProducts>
+          <speciesReference species="C00020"/>
+          <speciesReference species="C00013"/>
+          <speciesReference species="C02282"/>
+        </listOfProducts>
+        <listOfModifiers>
+          <modifierSpeciesReference species="6.1.1.18"/>
+        </listOfModifiers>
+      </reaction>
+      <reaction id="R03646">
+        <listOfReactants>
+          <speciesReference species="C00002"/>
+          <speciesReference species="C00062"/>
+          <speciesReference species="C01636"/>
+        </listOfReactants>
+        <listOfProducts>
+          <speciesReference species="C00020"/>
+          <speciesReference species="C00013"/>
+          <speciesReference species="C02163"/>
+        </listOfProducts>
+        <listOfModifiers>
+          <modifierSpeciesReference species="6.1.1.19"/>
+        </listOfModifiers>
+      </reaction>
+      <reaction id="R05577">
+        <listOfReactants>
+          <speciesReference species="C01638"/>
+          <speciesReference species="C00049"/>
+          <speciesReference species="C00002"/>
+        </listOfReactants>
+        <listOfProducts>
+          <speciesReference species="C02984"/>
+          <speciesReference species="C00013"/>
+          <speciesReference species="C00020"/>
+        </listOfProducts>
+        <listOfModifiers>
+          <modifierSpeciesReference species="6.1.1.12"/>
+        </listOfModifiers>
+      </reaction>
+      <reaction id="R05578">
+        <listOfReactants>
+          <speciesReference species="C01641"/>
+          <speciesReference species="C00025"/>
+          <speciesReference species="C00002"/>
+        </listOfReactants>
+        <listOfProducts>
+          <speciesReference species="C02987"/>
+          <speciesReference species="C00013"/>
+          <speciesReference species="C00020"/>
+        </listOfProducts>
+        <listOfModifiers>
+          <modifierSpeciesReference species="6.1.1.17"/>
+        </listOfModifiers>
+      </reaction>
+      <reaction id="R03647">
+        <listOfReactants>
+          <speciesReference species="C00002"/>
+          <speciesReference species="C00049"/>
+          <speciesReference species="C01637"/>
+        </listOfReactants>
+        <listOfProducts>
+          <speciesReference species="C00020"/>
+          <speciesReference species="C00013"/>
+          <speciesReference species="C06113"/>
+        </listOfProducts>
+        <listOfModifiers>
+          <modifierSpeciesReference species="6.1.1.12"/>
+        </listOfModifiers>
+      </reaction>
+      <reaction id="R03648">
+        <listOfReactants>
+          <speciesReference species="C00002"/>
+          <speciesReference species="C00152"/>
+          <speciesReference species="C01637"/>
+        </listOfReactants>
+        <listOfProducts>
+          <speciesReference species="C00020"/>
+          <speciesReference species="C00013"/>
+          <speciesReference species="C03402"/>
+        </listOfProducts>
+        <listOfModifiers>
+          <modifierSpeciesReference species="6.1.1.22"/>
+        </listOfModifiers>
+      </reaction>
+    </listOfReactions>
+  </model>
+</sbml>

@@ -3,6 +3,11 @@ metabolic network computing and visualization.
 Identifiers mainly follow conventions in KEGG.
 Their descriptions are supplemented by two external files,
 dict_ec_def and dict_cpds_def.
+
+Developed with libsbml 3.3.2, now keeping up with ver 4.0.0.
+In using SBML files, names instead of ids are used,
+because EC numbers can no longer be used as ids in new SBML specs.
+
 """
 
 import pygraphviz as pgv
@@ -107,15 +112,7 @@ class mnode:
         outlist = []
         for ec in ecs:
             try:
-                if len(dict_ec_def[ec]) > 49:
-                    outlist.append(ec)
-                elif len(dict_ec_def[ec]) > 30:
-                    middle = dict_ec_def[ec][20:35]
-                    pos = 20 + max(middle.find(" "), middle.find("-"))
-                    outlist.append(dict_ec_def[ec][:pos] + "\\n " 
-                                                    + dict_ec_def[ec][pos:])
-                else:
-                    outlist.append(dict_ec_def[ec])
+                outlist.append( self.long2short(dict_ec_def[ec]) )
             except KeyError:
                     outlist.append(ec)
         return "\\n".join(outlist)
@@ -134,34 +131,32 @@ class mnode:
         s = []
         for c in cpds:
             try:
-                s.append(dict_cpds_def[c].split(";")[0])
-                #s.append( self.lines_cpd(dict_cpds_def[c]) )
+                s.append( self.long2short(dict_cpds_def[c].split(";")[0]) )
             except KeyError:
                 s.append( c )
         return "\\n".join(s)
         
-    def lines_cpd(self, s):
+    def long2short(self, s):
         """
-        adjust long compound names to multiple lines;
+        adjust long compound/enzyme names to multiple lines.
+        Find '-' in [20:35], in not, break at [30]
         """
-        slen = len(s)
-        spare = [ ]
-        chunknum = slen/20 + 1
-        if chunknum > 2:
-            return quote(s)
-        elif chunknum > 1:
-            blocks = s.split('-')
-            newstr = blocks[0]
-            for b in blocks[1:]:
-                if len(newstr) < 23:
-                    newstr += '-' + b
-                else:
-                    spare.append(newstr)
-                    newstr = b
-            spare.append(newstr)
-            return quote("-\\n".join(spare))
+        if len(s) < 31:
+            return s
         else:
-            return quote(s)
+            news = ''
+            middle = s[20:35]
+            while len(middle) > 14:
+                pos = max(middle.find(" "), middle.find("-"))
+                if pos < 0: #nothing found
+                    news += s[:30] + '\\ \\n'
+                    s = s[30:]
+                else:
+                    news += s[:pos+20] + '\\ \\n'
+                    s = s[pos+20:]
+                middle = s[20:35]
+            news += s
+            return news
         
     def dotformat(self):
         buf_str = '[label=' + quote(self.beautified) + ', shape=' + quote(self.shape)
@@ -235,53 +230,68 @@ class mnetwork(networkx.DiGraph):
         """
         edge may not be unique; self.edgedict[edge] is unique.
         """
+        print "Working on ", infile
         reader = libsbml.SBMLReader()
         sbm = reader.readSBML(infile)
         model = sbm.getModel()
-        self.name = model.getId()
+        self.name = model.getName()
         # transfer model attr to mnetwork
         nodes = model.getListOfSpecies()
+        tagdict = {'':'', }
         for n in nodes:
-            m = mnode(n.getId(), n.getSpeciesType(), vizstyle=self.vizstyle)
-            m.set_attr()
-            self.nodedict[n.getId()] = m
-            self.add_node(n.getId())
+            if n.getName():
+                m = mnode(n.getName(), n.getSpeciesType(), vizstyle=self.vizstyle)
+                m.set_attr()
+                self.nodedict[n.getName()] = m
+                self.add_node(n.getName())
+                tagdict[n.getId()] = n.getName()
         rxns = model.getListOfReactions()
         for r in rxns:
-            ec, edges = self.parse_rxn(r)
+            ec, edges = self.parse_rxn(r, tagdict)
             if ec:
                 self.add_node(ec)
             self.add_edges_from(edges)
         for edge in self.edges():
             self.markedge(edge)
         
+        if '' in self.nodes():
+            self.remove_node('')
         print "Got model - ", self.name
         print "number of nodes:", self.__len__()
         
-    def parse_rxn(self, rxn):
+    def parse_rxn(self, rxn, tagdict):
         """
         get ec and edges from a libsbml.Reaction .
         Undirected edges are marked by a weight = 0; directed by 1.
-        What about rxns without an enzyme?
-        Problems in doing (cpd, cpd) edges?
+        Use tagdict to convert SBML ids to names.
+        If no EC is given, use rxn ID for visualization purpose.
         """
         edges = []
-        ec = rxn.getModifier(0).getSpecies()
+        ec = tagdict[rxn.getModifier(0).getId()]
+        if not ec:
+            ec = rxn.getId()
+            m = mnode(ec, 'enzyme', vizstyle=self.vizstyle)
+            m.set_attr()
+            self.nodedict[ec] = m
+            self.add_node(ec)
         reactants = rxn.getListOfReactants()
         products = rxn.getListOfProducts()
         if ec:
             if products:
                 for p in products:
-                    edges.append((ec, p.getSpecies(), 1))
+                    edges.append((ec, tagdict[p.getId()], 1))
                 for r in reactants:
-                    edges.append((r.getSpecies(), ec, 1))
+                    edges.append((tagdict[r.getId()], ec, 1))
             else:
                 for r in reactants:
-                    edges.append((r.getSpecies(), ec, 0))
+                    edges.append((tagdict[r.getId()], ec, 0))
+        # not using direct edges btw cpds; use rxn.id in place of ec
+        # Backup plan:
+        # for rxns without an enzyme, return (cpd, cpd) edges.
         else:
             for r in reactants:
                 for p in products:
-                    edges.append((r.getSpecies(), p.getSpecies(), 1))
+                    edges.append((tagdict[r.getId()], tagdict[p.getId()], 1))
         return ec, edges
     
     def thincopy(self):
@@ -485,7 +495,7 @@ class mnetwork(networkx.DiGraph):
         """
         buf_str = ""
         for n in self.nodes():
-            if self.neighbors(n):
+            if n and self.neighbors(n):
                 buf_str += '    "' + self.nodedict[
                               n].id +'" ' + self.nodedict[n].dotformat() + ';\n'
         return buf_str

@@ -4,10 +4,38 @@ For inferred reactions, the directionality may be unknown.
 In these cases, all compounds were put in reactants; 
 this scenario can be spotted by empty field of products.
 
-Last modified 04/22/2009, Shuzhao Li
+Developed with libsbml 3.3.2, now keeping up with ver 4.0.0.
+initiation of libsbml.Model() and SpeciesType, update with libsbml
+Last modified 06/08/2010, Shuzhao Li
 """
 
 import libsbml
+
+
+LEGAL_SID = [chr(x) for x in range(48, 58)
+            ] + [chr(x) for x in range(65, 91)
+            ] + [chr(x) for x in range(97, 123)]
+
+def sidify(s):
+    """Note that SBML has strict requirements for the syntax of identifiers. 
+    The following is summary of the definition of the SBML identifier type SId 
+    (here expressed in an extended form of BNF notation):
+      letter ::= 'a'..'z','A'..'Z'
+      digit  ::= '0'..'9'
+      idChar ::= letter | digit | '_'
+      SId    ::= ( letter | '_' ) idChar*
+    """
+    global LEGAL_SID
+    if s:
+        news = 'sid_'
+        for x in s:
+            if x not in LEGAL_SID:
+                news += '_'
+            else:
+                news += x
+        s = news
+    return s
+
 
 class reaction:
     """
@@ -34,6 +62,7 @@ class pathway:
     write a SBML file.
     """
     def __init__(self):
+        self.id = ''
         self.pathway = ''
         self.rxns = []
         self.eclist = []
@@ -41,6 +70,7 @@ class pathway:
         self.filename = ''
 
     def read_pathfile(self, infile):
+        self.id = infile.split('.')[0]
         w = open(infile).readlines()
         # path file of predefined format
         hlist = []
@@ -48,7 +78,7 @@ class pathway:
             a = line.split('\t')
             rxn = reaction()
             rxn.ID = a[0]
-            rxn.ecstr = a[1]
+            rxn.ecstr = a[1].strip()
             rxn.pathway = a[2].replace('"', '').strip()
             rxn.source = a[3]
             rxn.reactants = [x for x in a[4].strip().split(";") if x]
@@ -79,32 +109,48 @@ class pathway:
         if not outfile:
             outfile = self.filename + '.xml'
         docu = libsbml.SBMLDocument()
-        model = libsbml.Model(self.pathway)
+        model = docu.createModel()
+        model.setId(self.id)
+        model.setName(self.pathway)
         model.setAnnotation(
                     "a pathway from MetaFishNet project")
+        """
         ectype = libsbml.SpeciesType("enzyme")
         cpdtype = libsbml.SpeciesType("compound")
         model.addSpeciesType(ectype)
         model.addSpeciesType(cpdtype)
+        """
+        ectype = model.createSpeciesType()
+        ectype.setId("enzyme")
+        cpdtype = model.createSpeciesType()
+        cpdtype.setId("compound")
+
         for ec in self.eclist:
-            sp = libsbml.Species(ec)
+            sp = model.createSpecies()
+            sp.setId(sidify(ec))
+            sp.setName(ec)
             sp.setSpeciesType("enzyme")
-            model.addSpecies(sp)
         for cpd in self.cmpds:
-            ss = libsbml.Species(cpd)
+            ss = model.createSpecies()
+            ss.setId(sidify(cpd))
+            ss.setName(cpd)
             ss.setSpeciesType("compound")
-            model.addSpecies(ss)
             
         for rxn in self.rxns:
-            sbmrxn = libsbml.Reaction(rxn.ID)
-            sbmrxn.addModifier(libsbml.ModifierSpeciesReference(rxn.ecstr))
+            sbmrxn = model.createReaction()
+            sbmrxn.setId(rxn.ID)
+            m = sbmrxn.createModifier()
+            if rxn.ecstr:
+                m.setId(sidify(rxn.ecstr))
+            #m.setName(rxn.ecstr)
             for sub in rxn.reactants:
-                sbmrxn.addReactant(libsbml.SpeciesReference(sub))
+                r = sbmrxn.createReactant()
+                r.setId(sidify(sub))
             for prd in rxn.products:
-                sbmrxn.addProduct(libsbml.SpeciesReference(prd))
-            model.addReaction(sbmrxn)
+                p = sbmrxn.createProduct()
+                p.setId(sidify(prd))
             
-        docu.setModel(model)
+        #docu.setModel(model)
         libsbml.writeSBML(docu, outfile)
 
 

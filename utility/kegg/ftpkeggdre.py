@@ -11,7 +11,7 @@ f = FTP('ftp.genome.jp')
 print "Welcome:", f.getwelcome()
 f.login()
 
-f.cwd('/pub/kegg/xml/organisms/dre')
+f.cwd('/pub/kegg/xml/kgml/metabolic/organisms/dre')
 print "CWD: ", f.pwd()
 
 items = f.nlst()

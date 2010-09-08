@@ -100,7 +100,7 @@ class K2SB:
             
         for rxn in rlist:
             sbmrxn = model.createReaction()
-            sbmrxn.setId(rxn.ID)
+            sbmrxn.setName(rxn.ID)
             for enz in rxn.enzymes:
                 m = sbmrxn.createModifier()
                 m.setId(sidify(enz))

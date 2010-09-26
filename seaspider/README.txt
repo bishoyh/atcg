@@ -1,8 +1,5 @@
 ===== SeaSpider =====
-This file is to be updated.
-
-
-Check Google Code SVN for latest version,
+Please check Google Code SVN for latest version,
 http://code.google.com/p/atcg 
 
 Features
@@ -46,7 +43,7 @@ Unpack the file to your blast/mydb/ folder.
 Run "formatdb" to create database files, e.g.
 $ ../bin/formatdb -i metafishnet_seq.fasta -p F -o T
 
-3) Edit the configuration section in seaspider-lite.py,
+3) Edit the configuration section in config_spider.py,
 to make "blast_path" and "metafishnet_seqdb" point to 
 your BLAST paths.
 
